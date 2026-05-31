@@ -42,6 +42,10 @@ cargo build-sbf --manifest-path program/Cargo.toml
 
 Both commands passed.
 
+GitHub Actions CI also passed:
+
+- https://github.com/aisoh877/solana-rental-escrow/actions/runs/26701593048
+
 ## Devnet Links
 
 Pending devnet SOL funding for deployment wallet:
@@ -60,3 +64,6 @@ The code is ready for deployment, but the deploy wallet currently has `0 SOL` on
 - `solana airdrop`: rate limited.
 - Solana Foundation faucet: GitHub auth succeeded, but Cloudflare captcha requires manual browser completion.
 - `devnetfaucet.org`: GitHub auth succeeded, but the account was rejected with `No eligible repository found in Solana ecosystem`.
+- `devnetfaucet.org` vouch request flow: request accepted, but airdrop still failed and requires a public `Tweet for a Vouch`.
+- `solfaucet.com`: returned RPC internal error and no transaction ID.
+- QuickNode faucet: rejected the deploy wallet because it has insufficient mainnet SOL balance.
