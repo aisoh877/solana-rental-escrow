@@ -4,7 +4,7 @@ Listing: https://superteam.fun/earn/listing/build-everyday-real-world-systems-as
 
 Repository: https://github.com/aisoh877/solana-rental-escrow
 
-Prepared program ID: `Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3`
+Devnet program ID: `Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3`
 
 ## Project Summary
 
@@ -45,25 +45,30 @@ Both commands passed.
 GitHub Actions CI also passed:
 
 - https://github.com/aisoh877/solana-rental-escrow/actions/runs/26701593048
+- https://github.com/aisoh877/solana-rental-escrow/actions/runs/26701686727
 
 ## Devnet Links
 
-Pending devnet SOL funding for deployment wallet:
-
 - Deploy wallet: `Dcf6a6ag8MrrQd5Ty8ukqoRmumLxk49MPAEfSeCVNozN`
-- Program: `Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3`
-- Program explorer link: TBD
-- Create listing transaction: TBD
-- Book rental transaction: TBD
-- Complete rental transaction: TBD
+- Program: https://explorer.solana.com/address/Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3?cluster=devnet
+- Listing PDA: `Ff2a85aT7AAPMZSESi719impek84iGjLjwg1tUx2AUG9`
+- Escrow PDA: `6BxX2878KihoToDeaNajfzcdm31wgwPFwPVCCiGkBFsV`
+- Create listing transaction: https://explorer.solana.com/tx/9dyeTofHTouELJM9NyzRSrMiY8PF1CCGXsPnrBrTA33s4LEqruE4hBGMRqWnpLuArjbbGpEtZQGYv4wCgeTJDCz?cluster=devnet
+- Book rental transaction: https://explorer.solana.com/tx/26MzKpv2MMUmHWYxhkC6e9jNoH8RF9m8p89MM2PyGHrAukgTPNV3FpL5XdV1A7bcwQvL1BZWYAqGwAcoSykSrTkD?cluster=devnet
+- Complete rental transaction: https://explorer.solana.com/tx/3Q8LzJTbL7Z3TeTjEFupPC1Dn5HuUkFMuw4eavQi3oM2WNyMjFFesMSRMH1zCax1PKF9ExSJc8ctagbRha1dzd81?cluster=devnet
 
-## Current Deployment Blocker
+## Demo State
 
-The code is ready for deployment, but the deploy wallet currently has `0 SOL` on devnet. Attempts made:
+Final listing state after the devnet demo:
 
-- `solana airdrop`: rate limited.
-- Solana Foundation faucet: GitHub auth succeeded, but Cloudflare captcha requires manual browser completion.
-- `devnetfaucet.org`: GitHub auth succeeded, but the account was rejected with `No eligible repository found in Solana ecosystem`.
-- `devnetfaucet.org` vouch request flow: request accepted, but airdrop still failed and requires a public `Tweet for a Vouch`.
-- `solfaucet.com`: returned RPC internal error and no transaction ID.
-- QuickNode faucet: rejected the deploy wallet because it has insufficient mainnet SOL balance.
+```text
+owner: Dcf6a6ag8MrrQd5Ty8ukqoRmumLxk49MPAEfSeCVNozN
+renter: C2ownhAaUvhGGK8psR6FDjH8xyz1tmsq8cdiJd7zk5Mn
+listing_id: 1
+deposit_lamports: 50000000
+rental_fee_lamports: 10000000
+max_duration_slots: 1000
+start_slot: 466095062
+end_slot: 466095562
+status: completed
+```

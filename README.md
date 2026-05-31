@@ -4,7 +4,7 @@ Solana Rental Escrow is a minimal native Rust program for peer-to-peer rental de
 
 Public repo: https://github.com/aisoh877/solana-rental-escrow
 
-Program ID prepared for deployment: `Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3`
+Devnet program ID: `Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3`
 
 Everyday scenario: a neighbor rents out a camera, bike, tool, or other daily item. In the traditional flow, the owner asks for a cash deposit, the renter has little visibility into refund rules, and a dispute turns into a private chat. This program moves the core agreement on-chain: the owner publishes rental terms, the renter locks a deposit into a PDA escrow, and the owner can return the deposit when the item comes back.
 
@@ -77,7 +77,12 @@ cargo build-sbf --manifest-path program/Cargo.toml
 solana program deploy target/deploy/rental_escrow_program.so
 ```
 
-After deployment, replace `PROGRAM_ID` below.
+Deployed program:
+
+- Program ID: `Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3`
+- Explorer: https://explorer.solana.com/address/Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3?cluster=devnet
+
+Use the deployed program ID in the commands below.
 
 ## CLI Usage
 
@@ -123,14 +128,21 @@ cargo run -p rental-escrow-cli -- \
 
 ## Submission Evidence
 
-Devnet links will be added after deployment:
+- Program: https://explorer.solana.com/address/Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3?cluster=devnet
+- Listing PDA: `Ff2a85aT7AAPMZSESi719impek84iGjLjwg1tUx2AUG9`
+- Escrow PDA: `6BxX2878KihoToDeaNajfzcdm31wgwPFwPVCCiGkBFsV`
+- Create listing transaction: https://explorer.solana.com/tx/9dyeTofHTouELJM9NyzRSrMiY8PF1CCGXsPnrBrTA33s4LEqruE4hBGMRqWnpLuArjbbGpEtZQGYv4wCgeTJDCz?cluster=devnet
+- Book rental transaction: https://explorer.solana.com/tx/26MzKpv2MMUmHWYxhkC6e9jNoH8RF9m8p89MM2PyGHrAukgTPNV3FpL5XdV1A7bcwQvL1BZWYAqGwAcoSykSrTkD?cluster=devnet
+- Complete rental transaction: https://explorer.solana.com/tx/3Q8LzJTbL7Z3TeTjEFupPC1Dn5HuUkFMuw4eavQi3oM2WNyMjFFesMSRMH1zCax1PKF9ExSJc8ctagbRha1dzd81?cluster=devnet
 
-- Program: `Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3`
-- Create listing transaction: TBD
-- Book rental transaction: TBD
-- Complete rental transaction: TBD
+Final listing state after the demo:
 
-Deployment status:
-
-- SBF build is complete.
-- Devnet deploy is pending devnet SOL. CLI airdrop was rate-limited, the Solana Foundation web faucet required Cloudflare captcha, and `devnetfaucet.org` rejected the GitHub account with `No eligible repository found in Solana ecosystem`.
+```text
+owner: Dcf6a6ag8MrrQd5Ty8ukqoRmumLxk49MPAEfSeCVNozN
+renter: C2ownhAaUvhGGK8psR6FDjH8xyz1tmsq8cdiJd7zk5Mn
+listing_id: 1
+deposit_lamports: 50000000
+rental_fee_lamports: 10000000
+max_duration_slots: 1000
+status: completed
+```
