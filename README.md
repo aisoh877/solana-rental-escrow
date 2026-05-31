@@ -2,6 +2,10 @@
 
 Solana Rental Escrow is a minimal native Rust program for peer-to-peer rental deposits on Solana devnet.
 
+Public repo: https://github.com/aisoh877/solana-rental-escrow
+
+Program ID prepared for deployment: `Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3`
+
 Everyday scenario: a neighbor rents out a camera, bike, tool, or other daily item. In the traditional flow, the owner asks for a cash deposit, the renter has little visibility into refund rules, and a dispute turns into a private chat. This program moves the core agreement on-chain: the owner publishes rental terms, the renter locks a deposit into a PDA escrow, and the owner can return the deposit when the item comes back.
 
 ## Why This Belongs On-Chain
@@ -49,6 +53,11 @@ Instructions:
 source ~/.cargo/env
 cargo test
 ```
+
+Verified locally on 2026-05-31:
+
+- `cargo test` passed.
+- `cargo build-sbf --manifest-path program/Cargo.toml` passed.
 
 Build SBF:
 
@@ -116,7 +125,12 @@ cargo run -p rental-escrow-cli -- \
 
 Devnet links will be added after deployment:
 
-- Program: TBD
+- Program: `Bo556kwX6HB4RKteyPsRY8F7SxQjzJanLSFNWdbiF8j3`
 - Create listing transaction: TBD
 - Book rental transaction: TBD
 - Complete rental transaction: TBD
+
+Deployment status:
+
+- SBF build is complete.
+- Devnet deploy is pending devnet SOL. CLI airdrop was rate-limited, the Solana Foundation web faucet required Cloudflare captcha, and `devnetfaucet.org` rejected the GitHub account with `No eligible repository found in Solana ecosystem`.
